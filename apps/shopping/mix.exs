@@ -19,7 +19,7 @@ defmodule Redfour.Shopping.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [
-      applications: [:logger],
+      applications: [:logger, :moebius],
       mod: {Redfour.Shopping, []}
     ]
   end
@@ -38,6 +38,6 @@ defmodule Redfour.Shopping.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:moebius, "~>2.0.0"}]
   end
 end

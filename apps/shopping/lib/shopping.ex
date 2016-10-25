@@ -6,6 +6,13 @@ defmodule Redfour.Shopping do
 	def start(_type, _args) do
 		# supervision goes here
 		start_session_supervisor
+		start_database
+	end
+
+	def start_database do
+		# start the supervised database
+		db_worker = worker(Redfour.Shopping.Db, [database: "redfour"])
+		Supervisor.start_link [db_worker, strategy: :one_for_one]
 	end
 
 	# define our parent supervisor
